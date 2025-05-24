@@ -10,20 +10,19 @@ import SwiftUI
 struct DisplayView: View {
     
     let display: String
-    let width: CGFloat
-    let height: CGFloat
     
     var body: some View {
         Text(display)
-            .lineLimit(1)
-            .minimumScaleFactor(0.1)
+            .multilineTextAlignment(.leading)
+            .lineLimit(3)
+            //.minimumScaleFactor(0.5)
             .font(Font.system(size: 100).monospacedDigit())
             .padding()
-            .frame(width: width, height: height, alignment: .bottomTrailing)
+            //.background(Color.green)
     }
     
 }
 
 #Preview {
-    DisplayView(display: "123456789", width: 512, height: 150)
+    DisplayView(display: "3.14159")
 }

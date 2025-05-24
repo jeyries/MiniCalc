@@ -14,22 +14,24 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { proxy in
             
-            let display: CGFloat = 150
             let padding: CGFloat = 10
-            let height = proxy.size.height - display - 2*padding
             let width = proxy.size.width - 2*padding
             let buttonWidth = width/4
-            let buttonHeight = min(width/4, height/5)
+            let buttonHeight = buttonWidth
             
-            return VStack(spacing: 0) {
-                Spacer()
+            return VStack(alignment: .trailing, spacing: 0) {
                 
-                DisplayView(display: viewModel.display,
-                            width: width + 2*padding,
-                            height: display)
+                DisplayView(display: viewModel.display)
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity,
+                           alignment: .bottomTrailing)
+                    //.background(Color.green)
                 
-                KeyboardView(width: buttonWidth, height: buttonHeight, press: viewModel.press)
-                .padding(padding)
+                KeyboardView(width: buttonWidth,
+                             height: buttonHeight,
+                             press: viewModel.press)
+                    .padding(padding)
+                    //.background(Color.gray)
             }
         }
     }

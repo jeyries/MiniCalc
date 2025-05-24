@@ -39,7 +39,7 @@ class Calculator {
             hasError = true
             return
         }
-        let c = a - b
+        let c = b - a
         stack.append(c)
     }
     
@@ -59,7 +59,7 @@ class Calculator {
             hasError = true
             return
         }
-        let c = a / b
+        let c = b / a
         stack.append(c)
     }
     
